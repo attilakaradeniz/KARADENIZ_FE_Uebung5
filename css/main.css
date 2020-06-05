@@ -1,0 +1,47 @@
+table{
+    display: block;
+    width: auto;
+    padding-left: 8px;
+    color: #666666;
+}
+
+td{
+
+    height: 40px;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+    /*background-color: #f9f9f9;*/
+}
+
+.table-hover{
+    cursor: pointer;
+}
+
+#categoriesTable td {
+    width: 200px!important;
+
+}
+
+#emptyTD {
+    width: 50px!important;
+}
+
+
+.nav > li:first-child > a {
+    color: red;
+}
+
+.nav > li:last-child > a {
+    color: green;
+}
+
+
+
+
+
+
+
+
+

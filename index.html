@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <title>Karadeniz FE Übung 5</title>
+
+
+</head>
+<body>
+
+<ul class="nav justify-content-md-center sticky-top nav-pills bg-dark text-danger">
+    <li class="nav-item">
+        <a class="nav-link" href="index.html">Welcome</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Products</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="checkout.html">My Basket</a>
+    </li>
+
+</ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4">
+            <br><br><br>
+            <button id="load-Categories" class="btn btn-outline-danger">Show Product Types</button>
+            <table id="categoriesTable" class="table-hover">
+                <thead>
+                <tr>
+                    <th>Type ID</th>
+                    <th>Product Types</th>
+                </tr>
+
+
+                </thead>
+                <tbody>
+                <td></td>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="productsDiv" class="col-lg-4">
+            <br><br><br>
+            <button id="clear-Table" class="btn btn-outline-primary">Clear Table</button>
+            <table id="productsTable" class="table-hover">
+                <thead>
+                <th width="50px">ID</th>
+                <th width="400px">Product</th>
+                </thead>
+                <tbody>
+                <td id="emptyTD"></td>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div id="cartDiv" class="col-lg-4">
+            <br><br><br>
+            <button id="cartButton" class="btn btn-outline-success">Go to pay</button>
+            <table id="cartTable" class="table-hover">
+                <thead>
+                <th width="50px"></th>
+                <th width="400px">My Basket</th>
+                </thead>
+                <tbody>
+                <td id="emptyCartTD"></td>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/Products.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
