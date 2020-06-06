@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcfaeb6d-32ad-45f2-a811-bb78f0838981" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/model/ProductsModel.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/model/ProductsModel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/Products.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Products.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/jquery-3.4.1.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +57,7 @@
       <updated>1591264291290</updated>
       <workItem from="1591264292458" duration="26171000" />
       <workItem from="1591329480008" duration="14513000" />
-      <workItem from="1591433718921" duration="20078000" />
+      <workItem from="1591433718921" duration="20507000" />
     </task>
     <servers />
   </component>
