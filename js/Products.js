@@ -88,7 +88,7 @@ class Products {
                 let product = response[i];
                 let tr = $("<tr></tr>");
 //            tr.append("<td>" + product.articleName + "</td>");
-            tr.append("<td>" + product.product_id + "</td>");
+            //tr.append("<td>" + product.product_id + "</td>");
             tr.append("<td>" + product.articleName + "</td>");
                 this.productsTable.append(tr);
 
