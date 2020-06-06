@@ -37,6 +37,25 @@ tr:nth-child(even){
     color: green;
 }
 
+#categoriesTable {
+    visibility: hidden;
+}
+
+#productsTable {
+    visibility: hidden;
+}
+
+#cartTable {
+    visibility: hidden;
+}
+
+.nav {
+    /*background-color: #7abaff!important;*/
+    background-color: seashell!important;
+}
+
+
+
 
 
 

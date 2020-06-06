@@ -3,17 +3,33 @@ class Products {
     constructor() {
         this.categoriesTable = $('#categoriesTable').find('tbody');
         this.productsTable = $('#productsTable').find('tbody');
+        this.cartTable = $('#cartTable').find('tbody');
     }
 
 
     initEvents(){
+
         let that = this;
         $('#load-Categories').on('click', function () {
             that.getCategories();
+            $('#categoriesTable').css("visibility", "visible");
         });
 
         $('#clear-Table').on('click', function () {
             that.productsTable.empty();
+            $('#productsTable').css('visibility', 'hidden');
+
+        });
+
+        $("#cart-Button").on("click", function () {
+            //alert("go to pay clicked");
+            console.log('hops');
+        });
+
+        $("#clear-Basket").on("click", function () {
+            //alert("go to pay clicked");
+            that.cartTable.empty();
+            $('#cartTable').css('visibility', 'hidden');
         });
     }
 
@@ -41,12 +57,15 @@ class Products {
             tr.append("<td>" + productType.name + "</td>");
 
             tr.on('click', function () {
+                $('#productsTable').css('visibility', 'visible');
+                // $('#cartTable').css('visibility', 'visible');
                 that.getProducts(productType.id);
             });
             that.categoriesTable.append(tr);
         }
-    }
 
+
+    }
 
     getProducts(typeId){
         let that = this;
@@ -62,13 +81,6 @@ class Products {
             }
         });
     }
-
-    // getproductsWithId(){
-    //     $.ajax({
-    //        url:
-    //     });
-    // }
-
     fillProducts(response){
         let that = this;
         that.clearTable(that.productsTable);
@@ -76,13 +88,55 @@ class Products {
                 let product = response[i];
                 let tr = $("<tr></tr>");
 //            tr.append("<td>" + product.articleName + "</td>");
-            tr.append("<td id='pId'>" + product.product_id + "</td><td id='pName'>" + product.articleName + "</td></td>");
+            tr.append("<td>" + product.product_id + "</td>");
+            tr.append("<td>" + product.articleName + "</td>");
                 this.productsTable.append(tr);
-                // td.on('click', function () {
-                //     alert("MALERT");
-                // });
+
         }
-        console.log(response);
+        // console.log(response);
+
+        $('#productsTable td').on('click', function (event) {
+                //event.stopPropagation();
+             //console.log(event.target.parentNode.firstChild.innerHTML); // gives product id
+            // console.log(event.target.innerHTML); gives content of clicked -> product name
+            // console.log("response[0]: ", response[0]);
+            // console.log("response[0].product_id: ", response[0].product_id);
+            // console.log("response: ", response);
+
+            $('#cartTable').css('visibility' , 'visible');
+            //that.addProductToCartView(event.target.parentNode.firstChild.innerHTML, event.target.innerHTML );
+            //let product = "<td>" + event.target.parentNode.firstChild.innerHTML + "</td><td>" + event.target.innerHTML + "</td>";
+            //let product = "<tr>" + event.target.parentNode.innerHTML + "</tr>";
+            let product = "<td>" + event.target.innerHTML + "</td>";
+
+            //let product = event.target.parentNode;
+            that.addProductToCartView(product);
+
+        });
+    }
+
+    // addProductToCartView(id, productName){
+    //     let that = this;
+    //     let tr = $("<tr></tr>");
+    //     tr.append("<td>" + id + "</td><td>" + productName + "</td>");
+    //     this.cartTable.append(tr);
+    //
+    //     $('#cartTable td').on('click', function (event) {
+    //         event.target.parentNode.remove();
+    //     });
+    // }
+
+
+    addProductToCartView(product){
+        let that = this;
+        let tr = $("<tr></tr>");
+
+        tr.append(product);
+        that.cartTable.append(tr);
+
+        $('#cartTable td').on('click', function (event) {
+            event.target.parentNode.remove();
+        });
     }
 
     clearTable($table){

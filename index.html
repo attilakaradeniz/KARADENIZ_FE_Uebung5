@@ -34,8 +34,8 @@
             <table id="categoriesTable" class="table-hover">
                 <thead>
                 <tr>
-                    <th>Type ID</th>
-                    <th>Product Types</th>
+                    <th width="50px">Type ID</th>
+                    <th width="400px">Product Types</th>
                 </tr>
 
 
@@ -51,8 +51,10 @@
             <button id="clear-Table" class="btn btn-outline-primary">Clear Table</button>
             <table id="productsTable" class="table-hover">
                 <thead>
+                <tr>
                 <th width="50px">ID</th>
                 <th width="400px">Product</th>
+                </tr>
                 </thead>
                 <tbody>
                 <td id="emptyTD"></td>
@@ -63,14 +65,18 @@
 
         <div id="cartDiv" class="col-lg-4">
             <br><br><br>
-            <button id="cartButton" class="btn btn-outline-success">Go to pay</button>
+            <button id="cart-Button" class="btn btn-outline-success">Go to pay</button>
+            <button id="clear-Basket" class="btn btn-outline-warning">Clear Basket</button>
+
             <table id="cartTable" class="table-hover">
                 <thead>
-                <th width="50px"></th>
-                <th width="400px">My Basket</th>
+                <tr>
+                    <th width="500px">My Basket</th>
+
                 </thead>
+                </tr>
                 <tbody>
-                <td id="emptyCartTD"></td>
+
                 </tbody>
             </table>
 
@@ -83,8 +89,8 @@
 
 
 
+<script src="js/jquery-3.4.1.js"></script>
 
-<script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/Products.js"></script>
 <script src="js/main.js"></script>
 
