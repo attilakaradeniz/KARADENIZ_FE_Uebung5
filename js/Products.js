@@ -88,9 +88,10 @@ class Products {
                 let product = response[i];
                 let tr = $("<tr></tr>");
 //            tr.append("<td>" + product.articleName + "</td>");
-            //tr.append("<td>" + product.product_id + "</td>");
+            tr.append("<td>" + product.price + " &euro; </td>");
             tr.append("<td>" + product.articleName + "</td>");
                 this.productsTable.append(tr);
+
 
         }
         // console.log(response);
@@ -105,9 +106,9 @@ class Products {
 
             $('#cartTable').css('visibility' , 'visible');
             //that.addProductToCartView(event.target.parentNode.firstChild.innerHTML, event.target.innerHTML );
-            //let product = "<td>" + event.target.parentNode.firstChild.innerHTML + "</td><td>" + event.target.innerHTML + "</td>";
+            let product = "<td>" + event.target.parentNode.firstChild.innerHTML + "</td><td>" + event.target.innerHTML + "</td>";
             //let product = "<tr>" + event.target.parentNode.innerHTML + "</tr>";
-            let product = "<td>" + event.target.innerHTML + "</td>";
+            //let product = "<td>" + event.target.innerHTML + "</td>";
 
             //let product = event.target.parentNode;
             that.addProductToCartView(product);
