@@ -4,6 +4,9 @@ class Products {
         this.categoriesTable = $('#categoriesTable').find('tbody');
         this.productsTable = $('#productsTable').find('tbody');
         this.cartTable = $('#cartTable').find('tbody');
+        this.priceArray = [];
+        this.parsedPriceArray = [];
+        this.sum = 0;
     }
 
 
@@ -30,6 +33,15 @@ class Products {
             //alert("go to pay clicked");
             that.cartTable.empty();
             $('#cartTable').css('visibility', 'hidden');
+            $('#totalDiv').text("Nothing to pay :)");
+            // clears the priceArray
+            while(that.priceArray.length > 0){
+                that.priceArray.pop();
+            }
+
+            // clears the sum
+            that.sum = 0;
+
         });
     }
 
@@ -88,7 +100,8 @@ class Products {
                 let product = response[i];
                 let tr = $("<tr></tr>");
 //            tr.append("<td>" + product.articleName + "</td>");
-            tr.append("<td>" + product.price + " &euro; </td>");
+//            tr.append("<td>" + product.price + " &euro; </td>");
+            tr.append("<td>" + product.price + " &euro;</td>");
             tr.append("<td>" + product.articleName + "</td>");
                 this.productsTable.append(tr);
 
@@ -107,11 +120,13 @@ class Products {
             $('#cartTable').css('visibility' , 'visible');
             //that.addProductToCartView(event.target.parentNode.firstChild.innerHTML, event.target.innerHTML );
             let product = "<td>" + event.target.parentNode.firstChild.innerHTML + "</td><td>" + event.target.innerHTML + "</td>";
+            let price = event.target.parentNode.firstChild.innerHTML;
             //let product = "<tr>" + event.target.parentNode.innerHTML + "</tr>";
             //let product = "<td>" + event.target.innerHTML + "</td>";
 
+            //price = price*2;
             //let product = event.target.parentNode;
-            that.addProductToCartView(product);
+            that.addProductToCartView(product, price);
 
         });
     }
@@ -128,12 +143,21 @@ class Products {
     // }
 
 
-    addProductToCartView(product){
+    addProductToCartView(product, price){
         let that = this;
         let tr = $("<tr></tr>");
 
         tr.append(product);
         that.cartTable.append(tr);
+        let total = $('#totalDiv');
+
+        that.priceArray.push(price);
+         that.pushToParsedArray();
+
+         that.addUpParsedArray();
+         total.text("Total: " + that.sum.toFixed(2));
+
+        total.append(" &euro;");
 
         $('#cartTable td').on('click', function (event) {
             event.target.parentNode.remove();
@@ -143,6 +167,31 @@ class Products {
     clearTable($table){
         $table.empty();
     }
+
+
+    pushToParsedArray(){
+        let that = this;
+
+        while (that.parsedPriceArray.length >0){
+            that.parsedPriceArray.pop();
+        }
+        that.priceArray.forEach(element => that.parsedPriceArray.push(parseFloat(element)));
+    }
+    addUpParsedArray(){
+        let that = this;
+        that.sum = that.parsedPriceArray.reduce(function (a,b) {
+            return  a+b;
+        });
+        that.sum.toPrecision(2);
+
+
+    }
+
+
+
+
+
+
 
 
 }
